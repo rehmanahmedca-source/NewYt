@@ -1,0 +1,71 @@
+plugins {
+    id "com.android.application"
+    id "com.chaquo.python"
+}
+
+// ABIs are injected by CI via NEWYT_ABIS ("arm64-v8a,armeabi-v7a" or "arm64-v8a")
+def targetAbis = (System.getenv("NEWYT_ABIS") ?: "arm64-v8a,armeabi-v7a").split(",").toList()
+
+android {
+    namespace "ca.rehmanahmed.ytdx"
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "ca.rehmanahmed.ytdx"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        ndk {
+            abiFilters targetAbis
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("../keystore/newyt-release.p12")
+            storeType "PKCS12"
+            storePassword System.getenv("NEWYT_KEYSTORE_PASS") ?: "newyt1234"
+            keyAlias System.getenv("NEWYT_KEY_ALIAS") ?: "newyt"
+            keyPassword System.getenv("NEWYT_KEY_PASS") ?: "newyt1234"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+
+    packaging {
+        jniLibs {
+            // libffmpeg.so is a bundled executable; it must be extracted to
+            // nativeLibraryDir so yt-dlp can exec() it.
+            useLegacyPackaging = true
+        }
+        // Do not "strip" the static ffmpeg executables.
+        doNotStrip "**/libffmpeg.so"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+chaquopy {
+    defaultConfig {
+        version "3.11"
+        buildPython "python3.11"
+        pip {
+            install "-r", "requirements-android.txt"
+        }
+        // Flask must read templates/ and static/ from the real filesystem.
+        extractPackages "newyt"
+    }
+}

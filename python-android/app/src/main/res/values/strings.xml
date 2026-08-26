@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">YT Downloader X Pro</string>
+    <string name="starting_engine">Starting Python engine…</string>
+    <string name="loading_ui">Loading interface…</string>
+    <string name="server_failed">Server did not start. Reopen the app and check your storage.</string>
+</resources>

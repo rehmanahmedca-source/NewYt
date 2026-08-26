@@ -54,3 +54,13 @@ maui-android/logs/
 .idea/
 *.swp
 *.swo
+
+# Android (python-android) — build outputs & CI-fetched binaries
+python-android/.gradle/
+python-android/build/
+python-android/app/build/
+python-android/app/src/main/jniLibs/
+python-android/icon-src.png
+.gradle/
+local.properties
+*.apk
