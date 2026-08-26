@@ -1,8 +1,17 @@
 name: Build Android APK
 
+# NOTE: this file must live at .github/workflows/build-apk.yml to run.
+# (A bot token cannot commit to .github/workflows/ directly, so it is kept
+#  here as a copy for the repo owner to add once.)
+
 on:
   push:
-    branches: ["arena/**", master, main]
+    branches: [master, main]
+    paths:
+      - "python-android/**"
+      - ".github/workflows/build-apk.yml"
+  pull_request:
+    branches: [master, main]
     paths:
       - "python-android/**"
       - ".github/workflows/build-apk.yml"
@@ -12,6 +21,8 @@ jobs:
   build:
     name: Build ${{ matrix.variant.name }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     strategy:
       fail-fast: false
       matrix:

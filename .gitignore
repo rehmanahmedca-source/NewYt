@@ -64,3 +64,4 @@ python-android/icon-src.png
 .gradle/
 local.properties
 *.apk
+.github/
