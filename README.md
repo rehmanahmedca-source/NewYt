@@ -7,6 +7,7 @@ A self-hosted YouTube download manager available in **7 different framework impl
 | Folder | Framework | Runtime | Description |
 |---|---|---|---|
 | `/` (root) | **Python / Flask** | Python 3.8+ | Original implementation |
+| `python-android/` | **Android APK** | Chaquopy + Gradle | The Python app packaged as an installable Android app (no Termux needed) |
 | `nodejs/` | **Node.js / Express** | Node.js 18+ | JavaScript backend with EJS templates |
 | `php/` | **PHP** | PHP 8.0+ | Single-file router, PDO + SQLite |
 | `aspnet-core/` | **ASP.NET Core** | .NET 8.0 | Modern MVC with Razor views |
@@ -38,6 +39,12 @@ All versions require:
 pip install -r requirements.txt
 python app.py
 ```
+
+### Android APK (from the Python app)
+Install the prebuilt APK from the repo's [GitHub Releases](../../releases)
+(pick `YTDownloaderXPro-*.apk`), or see [`python-android/README.md`](python-android/README.md).
+No Termux, root or extra apps required — yt-dlp, ffmpeg and the whole Flask app
+run inside the APK.
 
 ### Node.js
 ```bash
