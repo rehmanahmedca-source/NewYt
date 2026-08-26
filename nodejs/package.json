@@ -1,0 +1,19 @@
+{
+  "name": "yt-downloader-x-pro",
+  "version": "1.0.0",
+  "description": "YT Downloader X Pro - YouTube download manager",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "better-sqlite3": "^9.4.3",
+    "ejs": "^3.1.9",
+    "express-session": "^1.17.3",
+    "uuid": "^9.0.0",
+    "axios": "^1.6.5",
+    "cookie-parser": "^1.4.6"
+  }
+}

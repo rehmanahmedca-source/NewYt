@@ -1,0 +1,10 @@
+<script language="VBScript" runat="Server">
+Sub Application_OnStart
+    ' Application startup
+End Sub
+
+Sub Session_OnStart
+    Session.Timeout = 1440
+    Session("sid") = ""
+End Sub
+</script>

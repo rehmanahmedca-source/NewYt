@@ -1,10 +1,56 @@
+# Python
 __pycache__/
 *.pyc
-instance/
-*.db
-.env
-.venv/
-venv/
-logs/
-temp/
+database.db
 downloads/
+temp/
+logs/
+*.egg-info/
+
+# Node.js
+node_modules/
+nodejs/database.db
+nodejs/downloads/
+nodejs/temp/
+nodejs/logs/
+
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.db
+aspnet10/downloads/
+aspnet10/temp/
+aspnet10/logs/
+aspnet-core/downloads/
+aspnet-core/temp/
+aspnet-core/logs/
+aspnet-mvc/downloads/
+aspnet-mvc/temp/
+aspnet-mvc/logs/
+
+# PHP
+php/database.db
+php/downloads/
+php/temp/
+php/logs/
+
+# Classic ASP
+classic-asp/database/
+classic-asp/downloads/
+classic-asp/temp/
+classic-asp/logs/
+
+# MAUI
+maui-android/bin/
+maui-android/obj/
+maui-android/downloads/
+maui-android/temp/
+maui-android/logs/
+
+# IDE
+.idea/
+*.swp
+*.swo

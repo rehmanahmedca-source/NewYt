@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="YTDownloaderXPro.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:YTDownloaderXPro.Views"
+    Shell.FlyoutBehavior="Flyout"
+    Shell.FlyoutBackgroundColor="#0A0E17"
+    Shell.FlyoutWidth="250"
+    Shell.BackgroundColor="#0A0E17"
+    Shell.ForegroundColor="#E8ECF5"
+    Shell.TitleColor="#3EA6FF">
+
+    <ShellContent Title="⚡ Dashboard" ContentTemplate="{DataTemplate views:DashboardPage}" Route="DashboardPage" />
+    <ShellContent Title="⬇ Downloads &amp; Queue" ContentTemplate="{DataTemplate views:DownloadsPage}" Route="DownloadsPage" />
+    <ShellContent Title="🕐 History" ContentTemplate="{DataTemplate views:HistoryPage}" Route="HistoryPage" />
+    <ShellContent Title="⚙ Settings" ContentTemplate="{DataTemplate views:SettingsPage}" Route="SettingsPage" />
+    <ShellContent Title="ℹ About" ContentTemplate="{DataTemplate views:AboutPage}" Route="AboutPage" />
+</Shell>
