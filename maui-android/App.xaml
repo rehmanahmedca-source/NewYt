@@ -1,0 +1,17 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="YTDownloaderXPro.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="NeonBlue">#3EA6FF</Color>
+            <Color x:Key="DarkBg">#0A0E17</Color>
+            <Color x:Key="PanelBg">#141A29</Color>
+            <Color x:Key="TextPrimary">#E8ECF5</Color>
+            <Color x:Key="TextMuted">#8B95AB</Color>
+            <Color x:Key="Success">#35E0A1</Color>
+            <Color x:Key="Danger">#FF5C7A</Color>
+            <Color x:Key="Warning">#FFC857</Color>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

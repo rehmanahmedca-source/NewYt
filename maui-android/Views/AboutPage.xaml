@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="YTDownloaderXPro.Views.AboutPage"
+             Title="About"
+             BackgroundColor="#0A0E17">
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="16">
+            <Frame BackgroundColor="#141A29" CornerRadius="16" Padding="20" BorderColor="Transparent">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="⚡ YT Downloader X Pro" FontSize="24" FontAttributes="Bold" TextColor="#3EA6FF" />
+                    <Label Text="Version 1.0" FontSize="14" TextColor="#8B95AB" />
+                    <Label Text="A self-hosted YouTube download manager built with .NET MAUI for Android." FontSize="14" TextColor="#E8ECF5" />
+                    <Label Text="Features:" FontSize="14" FontAttributes="Bold" TextColor="#E8ECF5" Margin="0,8,0,0" />
+                    <Label Text="• Fetch single videos, playlists, and channels" TextColor="#8B95AB" FontSize="13" />
+                    <Label Text="• Full format list per video (resolution, codec, bitrate)" TextColor="#8B95AB" FontSize="13" />
+                    <Label Text="• Parallel queue with pause/resume/cancel/retry" TextColor="#8B95AB" FontSize="13" />
+                    <Label Text="• Automatic resume of partial downloads" TextColor="#8B95AB" FontSize="13" />
+                    <Label Text="• Dashboard statistics and history" TextColor="#8B95AB" FontSize="13" />
+                    <Label Text="• Direct save to Android device storage" TextColor="#8B95AB" FontSize="13" />
+                    <Label Text="Built with .NET MAUI, sqlite-net, yt-dlp, CommunityToolkit.Maui." FontSize="12" TextColor="#8B95AB" Margin="0,12,0,0" />
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

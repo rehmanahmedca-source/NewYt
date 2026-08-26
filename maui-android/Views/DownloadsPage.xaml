@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="YTDownloaderXPro.Views.DownloadsPage"
+             Title="Downloads &amp; Queue"
+             BackgroundColor="#0A0E17">
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+            <Label Text="Fetch a Video" FontSize="18" FontAttributes="Bold" TextColor="#E8ECF5" />
+            <Frame BackgroundColor="#141A29" CornerRadius="12" Padding="12" BorderColor="Transparent">
+                <VerticalStackLayout Spacing="8">
+                    <Entry x:Name="urlEntry" Placeholder="Paste a YouTube link..." TextColor="#E8ECF5" PlaceholderColor="#8B95AB" BackgroundColor="#0A0E17" />
+                    <Button Text="🔍 Fetch" Clicked="OnFetchClicked" BackgroundColor="#3EA6FF" TextColor="#06111F" CornerRadius="10" FontAttributes="Bold" />
+                    <ActivityIndicator x:Name="fetchIndicator" IsRunning="False" Color="#3EA6FF" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Fetch Results -->
+            <Frame x:Name="resultsFrame" BackgroundColor="#141A29" CornerRadius="12" Padding="12" BorderColor="Transparent" IsVisible="False">
+                <VerticalStackLayout Spacing="8">
+                    <Label x:Name="resultsTitle" FontSize="16" FontAttributes="Bold" TextColor="#E8ECF5" />
+                    <CollectionView x:Name="entriesList" HeightRequest="300">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BackgroundColor="#0A0E17" CornerRadius="8" Padding="8" Margin="0,4" BorderColor="Transparent">
+                                    <Grid ColumnDefinitions="Auto,*">
+                                        <CheckBox Grid.Column="0" IsChecked="{Binding IsSelected}" Color="#3EA6FF" />
+                                        <VerticalStackLayout Grid.Column="1" Spacing="2">
+                                            <Label Text="{Binding Title}" FontSize="14" TextColor="#E8ECF5" LineBreakMode="TailTruncation" />
+                                            <Label Text="{Binding Uploader}" FontSize="12" TextColor="#8B95AB" />
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <Button Text="⬇ Download Selected" Clicked="OnDownloadClicked" BackgroundColor="#3EA6FF" TextColor="#06111F" CornerRadius="10" FontAttributes="Bold" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Queue -->
+            <Label Text="Queue" FontSize="18" FontAttributes="Bold" TextColor="#E8ECF5" Margin="0,12,0,0" />
+            <CollectionView x:Name="queueList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#141A29" CornerRadius="12" Padding="12" Margin="0,4" BorderColor="Transparent">
+                            <VerticalStackLayout Spacing="6">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Label Grid.Column="0" Text="{Binding Title}" FontSize="14" TextColor="#E8ECF5" LineBreakMode="TailTruncation" />
+                                    <Label Grid.Column="1" Text="{Binding Status}" FontSize="11" TextColor="#3EA6FF" />
+                                </Grid>
+                                <ProgressBar Progress="{Binding Progress, Converter={StaticResource ProgressConverter}}" ProgressColor="#3EA6FF" />
+                                <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="8">
+                                    <Button Grid.Column="0" Text="⏸" Clicked="OnPauseClicked" CommandParameter="{Binding Id}" BackgroundColor="#1A1F2E" TextColor="#FFC857" CornerRadius="8" FontSize="12" Padding="4" />
+                                    <Button Grid.Column="1" Text="▶" Clicked="OnResumeClicked" CommandParameter="{Binding Id}" BackgroundColor="#1A1F2E" TextColor="#35E0A1" CornerRadius="8" FontSize="12" Padding="4" />
+                                    <Button Grid.Column="2" Text="✕" Clicked="OnCancelClicked" CommandParameter="{Binding Id}" BackgroundColor="#1A1F2E" TextColor="#FF5C7A" CornerRadius="8" FontSize="12" Padding="4" />
+                                    <Button Grid.Column="3" Text="🗑" Clicked="OnRemoveClicked" CommandParameter="{Binding Id}" BackgroundColor="#1A1F2E" TextColor="#8B95AB" CornerRadius="8" FontSize="12" Padding="4" />
+                                </Grid>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

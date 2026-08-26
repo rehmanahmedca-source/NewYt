@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="YTDownloaderXPro.Views.SettingsPage"
+             Title="Settings"
+             BackgroundColor="#0A0E17">
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+            <Frame BackgroundColor="#141A29" CornerRadius="12" Padding="16" BorderColor="Transparent">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Download Settings" FontSize="16" FontAttributes="Bold" TextColor="#3EA6FF" />
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Download Folder" TextColor="#8B95AB" FontSize="12" />
+                        <Entry Text="{Binding DownloadFolder}" TextColor="#E8ECF5" BackgroundColor="#0A0E17" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Max Concurrent Downloads" TextColor="#8B95AB" FontSize="12" />
+                        <Entry Text="{Binding MaxConcurrent}" Keyboard="Numeric" TextColor="#E8ECF5" BackgroundColor="#0A0E17" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Concurrent Fragments" TextColor="#8B95AB" FontSize="12" />
+                        <Entry Text="{Binding ConcurrentFragments}" Keyboard="Numeric" TextColor="#E8ECF5" BackgroundColor="#0A0E17" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Max Retries" TextColor="#8B95AB" FontSize="12" />
+                        <Entry Text="{Binding MaxRetries}" Keyboard="Numeric" TextColor="#E8ECF5" BackgroundColor="#0A0E17" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Speed Limit (KB/s, 0=unlimited)" TextColor="#8B95AB" FontSize="12" />
+                        <Entry Text="{Binding SpeedLimitKbps}" Keyboard="Numeric" TextColor="#E8ECF5" BackgroundColor="#0A0E17" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Proxy" TextColor="#8B95AB" FontSize="12" />
+                        <Entry Text="{Binding Proxy}" TextColor="#E8ECF5" BackgroundColor="#0A0E17" Placeholder="http://host:port" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="FFmpeg Path" TextColor="#8B95AB" FontSize="12" />
+                        <Entry Text="{Binding FfmpegPath}" TextColor="#E8ECF5" BackgroundColor="#0A0E17" />
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="#141A29" CornerRadius="12" Padding="16" BorderColor="Transparent">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Post-Processing" FontSize="16" FontAttributes="Bold" TextColor="#3EA6FF" />
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Embed Metadata" TextColor="#E8ECF5" VerticalOptions="Center" />
+                        <Switch Grid.Column="1" IsToggled="{Binding EmbedMetadata}" OnColor="#3EA6FF" />
+                    </Grid>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Embed Thumbnail" TextColor="#E8ECF5" VerticalOptions="Center" />
+                        <Switch Grid.Column="1" IsToggled="{Binding EmbedThumbnail}" OnColor="#3EA6FF" />
+                    </Grid>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Embed Subtitles" TextColor="#E8ECF5" VerticalOptions="Center" />
+                        <Switch Grid.Column="1" IsToggled="{Binding EmbedSubtitles}" OnColor="#3EA6FF" />
+                    </Grid>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Remove Sponsor Segments" TextColor="#E8ECF5" VerticalOptions="Center" />
+                        <Switch Grid.Column="1" IsToggled="{Binding Sponsorblock}" OnColor="#3EA6FF" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="💾 Save Settings" Command="{Binding SaveCommand}" BackgroundColor="#3EA6FF" TextColor="#06111F" CornerRadius="10" FontAttributes="Bold" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

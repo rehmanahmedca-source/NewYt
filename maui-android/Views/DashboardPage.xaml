@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:YTDownloaderXPro.ViewModels"
+             x:Class="YTDownloaderXPro.Views.DashboardPage"
+             Title="Dashboard"
+             BackgroundColor="#0A0E17">
+    <ContentPage.BindingContext>
+        <vm:DashboardViewModel />
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+            <Label Text="⚡ YT Downloader X Pro" FontSize="22" FontAttributes="Bold" TextColor="#3EA6FF" />
+            <Label Text="Dashboard" FontSize="16" TextColor="#8B95AB" />
+
+            <!-- Stats Grid -->
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="12" RowSpacing="12">
+                <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#141A29" CornerRadius="14" Padding="16" BorderColor="Transparent">
+                    <VerticalStackLayout>
+                        <Label Text="📋" FontSize="24" />
+                        <Label Text="{Binding TotalDownloads}" FontSize="28" FontAttributes="Bold" TextColor="#3EA6FF" />
+                        <Label Text="Total (All-Time)" FontSize="12" TextColor="#8B95AB" />
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#141A29" CornerRadius="14" Padding="16" BorderColor="Transparent">
+                    <VerticalStackLayout>
+                        <Label Text="✅" FontSize="24" />
+                        <Label Text="{Binding CompletedDownloads}" FontSize="28" FontAttributes="Bold" TextColor="#35E0A1" />
+                        <Label Text="Completed" FontSize="12" TextColor="#8B95AB" />
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#141A29" CornerRadius="14" Padding="16" BorderColor="Transparent">
+                    <VerticalStackLayout>
+                        <Label Text="⚡" FontSize="24" />
+                        <Label Text="{Binding ActiveDownloads}" FontSize="28" FontAttributes="Bold" TextColor="#3EA6FF" />
+                        <Label Text="Active" FontSize="12" TextColor="#8B95AB" />
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#141A29" CornerRadius="14" Padding="16" BorderColor="Transparent">
+                    <VerticalStackLayout>
+                        <Label Text="📦" FontSize="24" />
+                        <Label Text="{Binding QueuedDownloads}" FontSize="28" FontAttributes="Bold" TextColor="#FFC857" />
+                        <Label Text="Queued" FontSize="12" TextColor="#8B95AB" />
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
+
+            <!-- Additional stats -->
+            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="12">
+                <Frame Grid.Column="0" BackgroundColor="#141A29" CornerRadius="14" Padding="12" BorderColor="Transparent">
+                    <VerticalStackLayout HorizontalOptions="Center">
+                        <Label Text="{Binding FailedDownloads}" FontSize="20" FontAttributes="Bold" TextColor="#FF5C7A" HorizontalOptions="Center" />
+                        <Label Text="Failed" FontSize="11" TextColor="#8B95AB" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame Grid.Column="1" BackgroundColor="#141A29" CornerRadius="14" Padding="12" BorderColor="Transparent">
+                    <VerticalStackLayout HorizontalOptions="Center">
+                        <Label Text="{Binding TotalGbDownloaded, StringFormat='{0:F2} GB'}" FontSize="20" FontAttributes="Bold" TextColor="#3EA6FF" HorizontalOptions="Center" />
+                        <Label Text="All Time" FontSize="11" TextColor="#8B95AB" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame Grid.Column="2" BackgroundColor="#141A29" CornerRadius="14" Padding="12" BorderColor="Transparent">
+                    <VerticalStackLayout HorizontalOptions="Center">
+                        <Label Text="{Binding SuccessRate, StringFormat='{0:F1}%'}" FontSize="20" FontAttributes="Bold" TextColor="#35E0A1" HorizontalOptions="Center" />
+                        <Label Text="Success" FontSize="11" TextColor="#8B95AB" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
+
+            <Button Text="🔄 Refresh" Command="{Binding RefreshCommand}" BackgroundColor="#3EA6FF" TextColor="#06111F" CornerRadius="10" FontAttributes="Bold" Margin="0,12,0,0" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
